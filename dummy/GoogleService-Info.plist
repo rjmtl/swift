@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCb6hSxavo5YcnDrPnyrEsDsAL-5tkailU</string>
+	<string>AIzaSyBxbaAuSJwjctilrd6J3m6Y7MXvwWhqbfA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>584047272170</string>
+	<string>223634938268</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.app.psa</string>
 	<key>PROJECT_ID</key>
-	<string>psa-swift</string>
+	<string>psa-dev-v3</string>
 	<key>STORAGE_BUCKET</key>
-	<string>psa-swift.appspot.com</string>
+	<string>psa-dev-v3.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:584047272170:ios:a031e849be99fe50d17793</string>
+	<string>1:223634938268:ios:c97479bf58c13e490b9059</string>
 </dict>
 </plist>
