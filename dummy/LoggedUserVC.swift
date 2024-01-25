@@ -16,7 +16,7 @@ class LoggedUserVC: UIViewController  {
     @IBOutlet weak var labelUserName: UILabel!
     var message : String = ""
     
-    
+    var  token = Preference.fcmToken
     override func viewDidLoad() {
         super.viewDidLoad()
         labelUserName.text = "FCMToken = \(Preference.fcmToken)"
@@ -29,6 +29,7 @@ class LoggedUserVC: UIViewController  {
             if let error = error {
                 print("Error fetching FCM registration token: \(error)")
             } else if let token = token {
+                self.token = token
                 print("FCM registration token: \(token)")
                 Preference.fcmToken =  token
                 TrackerManager.updateFcm()
@@ -46,7 +47,7 @@ class LoggedUserVC: UIViewController  {
         guard let label = sender.view as? UILabel else {
             return
         }
-        UIPasteboard.general.string = label.text
+        UIPasteboard.general.string = self.token
     }
     @IBAction func logOutAction(_ sender: UIButton) {
         Preference.deleteAll()
