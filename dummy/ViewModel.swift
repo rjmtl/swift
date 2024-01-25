@@ -10,8 +10,10 @@ import Foundation
 class ViewModel {
     let apiHandler = ApiHandler()
     var detail:APIModel? = nil
+    
     var action : (()-> ())?
     var failed : (()-> ())?
+    
     func login(_ param:[String:Any]){
         apiHandler.fetchData(ofType: APIModel.self, httpMethod: "POST", url: "https://app-backend-psa-d2c4cf36bd0c.herokuapp.com/login", body: param) { [weak self] success, detail, error in
             

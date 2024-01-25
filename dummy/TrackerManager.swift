@@ -10,9 +10,9 @@ import Foundation
 import SnowplowTracker
 
 class TrackerManager{
-    static var tracker:TrackerController? = Snowplow.createTracker(namespace: "gt-swift", endpoint: "https://orga.proemsportsanalytics.com") {
+    static var tracker:TrackerController? = Snowplow.createTracker(namespace: "psa-swift", endpoint: "https://orga.proemsportsanalytics.com") {
         TrackerConfiguration()
-         .appId("gt-ios")
+            .appId("psa-swift-ios")
             .base64Encoding(false)
             .sessionContext(true)
             .platformContext(true)
@@ -27,34 +27,44 @@ class TrackerManager{
             foregroundTimeout: Measurement(value: 30, unit: .minutes),
             backgroundTimeout: Measurement(value: 30, unit: .minutes)
         )
-      }
+    }
+
     
-    static func notificationReceivedEvernt(){
-        let data = ["psa_ma_id":  "", "psa_campaign_id": "", "user_id":  Preference.userId]
+    static func notificationReceivedEvernt(data:[AnyHashable : Any]){
+        tracker?.subject?.userId = Preference.userId
+        
+        let data = ["psa_ma_id":  data["psa_ma_id"] as? String ?? nil, "psa_campaign_id":  data["psa_campaign_id"] as? String ?? nil, "user_id":  Preference.userId, "psa_event_id": data["psa_event_id"] as? String ?? nil]
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/login/notification_received/1-0-0", payload: data)
         TrackerManager.tracker?.track(event)
     }
-    static func notificationOpenedEvernt(){
-        let data = ["psa_ma_id":  "", "psa_campaign_id": "", "user_id":  Preference.userId]
+    static func notificationOpenedEvernt(data:[AnyHashable : Any]){
+        tracker?.subject?.userId = Preference.userId
+        
+        
+        let data = ["psa_ma_id":  data["psa_ma_id"] as? String ?? nil, "psa_campaign_id":  data["psa_campaign_id"] as? String ?? nil, "user_id":  Preference.userId, "psa_event_id": data["psa_event_id"] as? String ?? nil]
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/login/notification_opened/1-0-0", payload: data)
         self.tracker?.track(event)
     }
     
     static func updateFcm(){
+        tracker?.subject?.userId = Preference.userId
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/update_fcm_token/jsonschema/1-0-0", payload:[ "fcm_token": Preference.fcmToken ] )
         TrackerManager.tracker?.track(event)
     }
     static func loginEvent(){
+        tracker?.subject?.userId = Preference.userId
         let data1 = ["user_id": Preference.userId  ];
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/login/jsonschema/1-0-0", payload: data1)
          TrackerManager.tracker?.track(event)
     }
     static func logout(){
+        tracker?.subject?.userId = Preference.userId
         let data = ["user_id": Preference.userId  ];
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/logout/jsonschema/1-0-0", payload: data)
         TrackerManager.tracker?.track(event)
     }
     static func userEvent(){
+        tracker?.subject?.userId = Preference.userId
         let data = [
             "email": Preference.email,
             "firstName": "YOUR_FIRST_NAME",
@@ -66,7 +76,6 @@ class TrackerManager{
             "state": "YOUR_STATE",
             "city": "YOUR_CITY"
         ]
-              
         let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/user_attributes/jsonschema/1-0-0", payload: data)
         TrackerManager.tracker?.track(event)
     }

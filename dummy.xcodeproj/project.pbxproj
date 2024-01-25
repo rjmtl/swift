@@ -24,6 +24,9 @@
 		912BEFEE2B6186E500D82574 /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EAB8D02B602885006928CB /* ApiHandler.swift */; };
 		912BEFEF2B6186EB00D82574 /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EAB8D12B602885006928CB /* ApiModel.swift */; };
 		9165AFCD2B62B9300038FBB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9165AFCC2B62B9300038FBB0 /* GoogleService-Info.plist */; };
+		9165AFD12B62EEE10038FBB0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9165AFD02B62EEE10038FBB0 /* FirebaseMessaging */; };
+		9165AFD32B62EEEB0038FBB0 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9165AFD22B62EEEB0038FBB0 /* FirebaseInAppMessagingSwift-Beta */; };
+		9165AFD52B62EEF80038FBB0 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9165AFD42B62EEF80038FBB0 /* FirebaseInAppMessaging-Beta */; };
 		91EAB8D22B602885006928CB /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EAB8D02B602885006928CB /* ApiHandler.swift */; };
 		91EAB8D32B602885006928CB /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EAB8D12B602885006928CB /* ApiModel.swift */; };
 		91EAB8E32B603875006928CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 91EAB8E22B603875006928CB /* FirebaseAnalytics */; };
@@ -150,7 +153,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9165AFD12B62EEE10038FBB0 /* FirebaseMessaging in Frameworks */,
+				9165AFD32B62EEEB0038FBB0 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				2D1296E475819BAD07201016 /* Pods_PsaNotificationCenter.framework in Frameworks */,
+				9165AFD52B62EEF80038FBB0 /* FirebaseInAppMessaging-Beta in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +302,11 @@
 			dependencies = (
 			);
 			name = PsaNotificationCenter;
+			packageProductDependencies = (
+				9165AFD02B62EEE10038FBB0 /* FirebaseMessaging */,
+				9165AFD22B62EEEB0038FBB0 /* FirebaseInAppMessagingSwift-Beta */,
+				9165AFD42B62EEF80038FBB0 /* FirebaseInAppMessaging-Beta */,
+			);
 			productName = PsaNotificationCenter;
 			productReference = 912BEFDF2B6182E900D82574 /* PsaNotificationCenter.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -757,6 +768,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9165AFD02B62EEE10038FBB0 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91EAB8E12B603875006928CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		9165AFD22B62EEEB0038FBB0 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91EAB8E12B603875006928CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		9165AFD42B62EEF80038FBB0 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91EAB8E12B603875006928CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
 		91EAB8E22B603875006928CB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91EAB8E12B603875006928CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

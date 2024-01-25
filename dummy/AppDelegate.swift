@@ -77,15 +77,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Notification Received
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("notification - ",notification)
-        TrackerManager.notificationReceivedEvernt()
+        let userInfo = notification.request.content.userInfo
+        print("notification - ",userInfo)
+        TrackerManager.notificationReceivedEvernt(data: userInfo)
     }
     
     // Notification Opened
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("response - ",response)
-        TrackerManager.notificationOpenedEvernt()
+        let userInfo = response.notification.request.content.userInfo
+        print("response - ",userInfo)
+        TrackerManager.notificationOpenedEvernt(data: userInfo)
     }
 }
 
+//[AnyHashable("psa_ma_id"): NA, AnyHashable("aps"): {
+//    alert =     {
+//        body = hello;
+//        title = hi;
+//    };
+//}, AnyHashable("psa_campaign_id"): 77, AnyHashable("google.c.fid"): ckwr26R3mEG2gN3v8_POrY, AnyHashable("psa_event_id"): NA, AnyHashable("google.c.sender.id"): 223634938268, AnyHashable("google.c.a.e"): 1, AnyHashable("gcm.message_id"): 1706206585262274]

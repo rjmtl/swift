@@ -42,13 +42,13 @@ class LoggedUserVC: UIViewController  {
         TrackerManager.userEvent()
     }
     
-    @objc
-    func labelDidGetTapped(sender: UITapGestureRecognizer) {
+    @objc func labelDidGetTapped(sender: UITapGestureRecognizer) {
         guard let label = sender.view as? UILabel else {
             return
         }
         UIPasteboard.general.string = self.token
     }
+    
     @IBAction func logOutAction(_ sender: UIButton) {
         Preference.deleteAll()
         if let loggedVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController {
