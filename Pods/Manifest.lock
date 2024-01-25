@@ -1,0 +1,22 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - SnowplowTracker (5.6.0):
+    - FMDB (~> 2.7)
+
+DEPENDENCIES:
+  - SnowplowTracker (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - FMDB
+    - SnowplowTracker
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  SnowplowTracker: eaf0737e24af09cce042682f9f7d0053d7ed0071
+
+PODFILE CHECKSUM: aa5d4d963d7dd7c294556bbd1cdd69221afc213f
+
+COCOAPODS: 1.14.3
