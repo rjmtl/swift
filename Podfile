@@ -6,7 +6,8 @@ target 'dummy' do
   use_frameworks!
 
   # Pods for dummy
-  pod 'SnowplowTracker', '~> 5.0'
+#  pod 'SnowplowTracker', '~> 5.0'
+  pod 'SnowplowTracker', :path => 'snowplow-ios-tracker-master/SnowplowTracker.podspec'
   
 end
 
@@ -15,7 +16,8 @@ target 'PsaNotificationCenter' do
   use_frameworks!
 
   # Pods for PsaNotificationCenter
-  pod 'SnowplowTracker', '~> 5.0'
+#  pod 'SnowplowTracker', '~> 5.0'
+  pod 'SnowplowTracker', :path => 'snowplow-ios-tracker-master/SnowplowTracker.podspec'
   
 end
 

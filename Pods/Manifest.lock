@@ -6,17 +6,20 @@ PODS:
     - FMDB (~> 2.7)
 
 DEPENDENCIES:
-  - SnowplowTracker (~> 5.0)
+  - SnowplowTracker (from `snowplow-ios-tracker-master/SnowplowTracker.podspec`)
 
 SPEC REPOS:
   trunk:
     - FMDB
-    - SnowplowTracker
+
+EXTERNAL SOURCES:
+  SnowplowTracker:
+    :path: snowplow-ios-tracker-master/SnowplowTracker.podspec
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SnowplowTracker: eaf0737e24af09cce042682f9f7d0053d7ed0071
 
-PODFILE CHECKSUM: aa5d4d963d7dd7c294556bbd1cdd69221afc213f
+PODFILE CHECKSUM: 4efda13a20eaa3cec03672f4136d3e1bd79b5385
 
 COCOAPODS: 1.12.1

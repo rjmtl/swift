@@ -34,16 +34,18 @@ class TrackerManager{
         tracker?.subject?.userId = Preference.userId
         
         let data = ["psa_ma_id":  data["psa_ma_id"] as? String ?? nil, "psa_campaign_id":  data["psa_campaign_id"] as? String ?? nil, "user_id":  Preference.userId, "psa_event_id": data["psa_event_id"] as? String ?? nil]
-        let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/login/notification_received/1-0-0", payload: data)
-        TrackerManager.tracker?.track(event)
+        let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/notification_received/jsonschema/1-0-0", payload: data)
+        let uuid = TrackerManager.tracker?.track(event)
+        print("notificationReceivedEvernt - ",uuid ?? "")
     }
     static func notificationOpenedEvernt(data:[AnyHashable : Any]){
         tracker?.subject?.userId = Preference.userId
         
         
         let data = ["psa_ma_id":  data["psa_ma_id"] as? String ?? nil, "psa_campaign_id":  data["psa_campaign_id"] as? String ?? nil, "user_id":  Preference.userId, "psa_event_id": data["psa_event_id"] as? String ?? nil]
-        let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/login/notification_opened/1-0-0", payload: data)
-        self.tracker?.track(event)
+        let event = SelfDescribing(schema: "iglu:com.proemsportsanalytics/notification_opened/jsonschema/1-0-0", payload: data)
+        let uuid = TrackerManager.tracker?.track(event)
+        print("notificationOpenedEvernt - ",uuid ?? "")
     }
     
     static func updateFcm(){
